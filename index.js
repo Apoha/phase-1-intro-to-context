@@ -163,23 +163,22 @@ let rRecord = createEmployeeRecord(["Rafiki", "", "Aide", 10])
 
 
 
-const findEmployeeByFirstname = (record, firstName) => {
+const findEmployeeByFirstName = (record, firstName) => {
     return record.find(function(rec){
-        return rec.firstName === firstName
+      return rec.firstName === firstName
     })
-}
-
-
-  const calculatePayroll = (record) => {
-    return record.reduce(function(rec){
-    return allWagesFor(rec)
-    })
-  }  
-
-
-
-
-
-
-
+  }
   
+  const calculatePayroll = (arr) => {
+    const totalPay = arr.reduce((acc, record) => {
+        const totalPayForEmployee = allWagesFor(record)
+        return acc + totalPayForEmployee
+    }, 0)
+    return totalPay
+  }
+
+
+
+
+
+
